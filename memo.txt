@@ -4,6 +4,12 @@ yarn add prop-types
 
 
 // section6
+react에서 가장 좋은 점은 컴포넌트를 새로 리렌더링한다는 것. => 직접 리랜더링할 필요가 없다는 특이점.
+다만, 내 컴포넌트에서 딱 한번만 실행하고 싶은 것도 존재할 수 있음. (시작 시 혹은 특정 조건 만족 시)
+이 경우 useEffect를 사용해서 해결이 가능함.
+
 useEffect(함수, useEffect를 적용할 것들)
 state 가 변해도 전체를 다시 렌더링하지 않는 문제를 해결하기 위한 방법
 ex) API 중복호출 방지, onChange 시 리렌더링 방지
+
+컴포넌트가 삭제될 때도 useEffect가 실행가능함. Hello function 참고

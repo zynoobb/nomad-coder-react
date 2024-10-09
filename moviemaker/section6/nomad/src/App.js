@@ -1,5 +1,23 @@
 import { useState, useEffect } from 'react';
 
+function Hello() {
+  function byeFn() {
+    console.log('bye :(');
+  }
+  function hiFn() {
+    console.log('hi. :)');
+    return byeFn; // 이와 같이 컴포넌트가 사라질 때도 동작하게 할 수 있음
+  }
+
+  // useEffect(hiFn, []);
+  useEffect(function () {
+    console.log('hi :)');
+    return () => console.log('bye :(');
+  });
+
+  return <h1>Hello</h1>;
+}
+
 function App() {
   const [counter, setValue] = useState(0);
   const [keyword, setKeyword] = useState('');
@@ -27,6 +45,11 @@ function App() {
     console.log('I run when "keyword" & "counter" changes.');
   }, [keyword, counter]);
 
+  // cleanup
+  const [showing, setShowing] = useState(false);
+
+  const onShowing = () => setShowing((prev) => !prev);
+
   return (
     <div>
       <input
@@ -37,6 +60,9 @@ function App() {
       />
       <h1>{counter}</h1>
       <button onClick={onClick}>click me</button>
+
+      {showing ? <Hello /> : null}
+      <button onClick={onShowing}>{showing ? 'Hide' : 'Show'}</button>
     </div>
   );
 }
