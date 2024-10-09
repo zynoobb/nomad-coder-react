@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById('root');
+
+    // 나쁜 방식
+    let counter = 0;
+
+    function countUp() {
+      counter++;
+      reRender();
+    }
+
+    function reRender() {
+      ReactDOM.render(<Container />, root);
+    }
+
+    function Container() {
+      return (
+        <div>
+          <h3 id="title">Total clicks : {counter}</h3>
+          <button onClick={countUp}>Click me</button>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<Container />, root);
+  </script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    const root = document.getElementById('root');
+    function Title() {
+      return (
+        <h3 id="title" onMouseEnter={() => console.log('mouse enter')}>
+          hello i am a title
+        </h3>
+      );
+    }
+
+    const Button = () => (
+      <button
+        style={{ backgroundColor: 'tomato' }}
+        onClick={() => console.log('i am clicked')}
+      >
+        Click me
+      </button>
+    );
+
+    // 컴포넌트의 첫글자는 반드시 대문자여야 한다.
+    const Container = () => (
+      <div>
+        <button> 버튼 </button>
+        <Title /> <Button />
+      </div>
+    );
+
+    // const h3 = React.createElement(
+    //   'h3',
+    //   {
+    //     id: 'title',
+    //     onMouseEnter: () => console.log('mouse enter'),
+    //   },
+    //   'hello, i am a span'
+    // ); // (argument, id, content)
+
+    // const btn = React.createElement(
+    //   'button',
+    //   {
+    //     onClick: () => console.log('im clicked'),
+    //     style: { color: 'tomato' },
+    //   },
+    //   'Click me'
+    // );
+    // const container = React.createElement('div', null, [Title, Button]);
+
+    ReactDOM.render(<Container />, root); // 사용자에게 rendering 해서 보여줌
+  </script>
+</html>
+
+<!-- https://www.unpkg.com/react@18.3.1/umd/react.production.min.js
+https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js -->

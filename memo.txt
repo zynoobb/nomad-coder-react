@@ -1,0 +1,2 @@
+npx create-react-app {} // react 설치 명령어
+yarn add prop-types
