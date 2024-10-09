@@ -1,2 +1,9 @@
+// section5
 npx create-react-app {} // react 설치 명령어
 yarn add prop-types
+
+
+// section6
+useEffect(함수, useEffect를 적용할 것들)
+state 가 변해도 전체를 다시 렌더링하지 않는 문제를 해결하기 위한 방법
+ex) API 중복호출 방지, onChange 시 리렌더링 방지
